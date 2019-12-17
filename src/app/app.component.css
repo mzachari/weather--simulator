@@ -1,0 +1,15 @@
+agm-map {
+  height: 100%;
+  width: 100%;
+}
+div{
+  margin:auto;
+  height: 400px;
+  width: 700px;
+}
+h1{
+  text-align: center;
+}
+button {
+  float:right;
+}
