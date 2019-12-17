@@ -1,7 +1,8 @@
 <h1>Weather Simulator</h1>
 <div>
-  Precipitation: <mat-slider thumbLabel  min="20" max="1000" step="1" value="25"></mat-slider>
-  <button mat-raised-button color="primary">Simulate</button>
+  Precipitation: <mat-slider [disabled]="disabled" thumbLabel  min="20" max="1000" step="1" value="25"></mat-slider>
+  <button mat-raised-button [disabled]="disabled" color="primary">Simulate</button>
+  <button mat-raised-button [disabled]="disabled" color="primary" (click)="deleteSelectedShape()">Clear Selection</button>
   <agm-map
     [zoom]="4"
     [latitude]="lat"

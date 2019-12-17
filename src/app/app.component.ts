@@ -17,6 +17,7 @@ export class AppComponent {
   farmCoords: { lat: number; lng: number }[] = [];
   farmArea = 0;
   farmLocations: Array<google.maps.LatLng>[];
+  disabled = true;
   constructor(private mapsAPILoader: MapsAPILoader) {}
   onMapReady(map) {
     this.initDrawingManager(map);
@@ -31,6 +32,7 @@ export class AppComponent {
       this.drawingManager.setOptions({
         drawingControl: true
       });
+      this.disabled = true;
     }
   }
   clearSelection() {
@@ -100,6 +102,7 @@ export class AppComponent {
                 self.farmArea = google.maps.geometry.spherical.computeArea(
                   event.overlay.getPath()
                 );
+
                 console.log(self.farmCoords, self.farmArea);
               }
             });
@@ -160,6 +163,7 @@ export class AppComponent {
           self.farmArea = google.maps.geometry.spherical.computeArea(
             event.overlay.getPath()
           );
+          self.disabled = false;
           console.log(self.farmCoords, self.farmArea);
         }
         if (event.type !== google.maps.drawing.OverlayType.MARKER) {
@@ -181,7 +185,7 @@ export class AppComponent {
         }
       }
     );
-  };
+  }
   private setCurrentPosition() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
