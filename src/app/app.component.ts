@@ -14,7 +14,7 @@ export class AppComponent {
   lng = 77.59626583204385;
   drawingManager: any;
   selectedShape: any;
-  farmCoords: { lat: number; lng: number }[] = [];
+  farmCoords: { lat: number; lng: number }[] = []; //selected coordinates
   farmArea = 0;
   farmLocations: Array<google.maps.LatLng>[];
   disabled = true;
@@ -193,5 +193,13 @@ export class AppComponent {
         this.lng = position.coords.longitude;
       });
     }
+  }
+
+  /// Add you code here
+  simulatePrecipitation() {
+
+  }
+  simulateDrought() {
+
   }
 }
