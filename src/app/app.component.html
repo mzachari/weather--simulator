@@ -1,7 +1,7 @@
 <div *ngIf = "farmsListLoaded">
 <h1>Weather Simulator</h1>
 <div>
-  Precipitation: <mat-slider [disabled]="disabled" thumbLabel  min="0" max="100" step="1" [value]="precipitationVal"></mat-slider>
+  Precipitation: <mat-slider [disabled]="disabled" thumbLabel  min="0" max="100" step="1" [(value)]="precipitationVal"></mat-slider>
   <button mat-raised-button [disabled]="disabled" color="primary" (click)="simulatePrecipitation()">Simulate</button>
   <button mat-raised-button [disabled]="disabled" color="primary" (click)="simulateDrought()">Simulate Drought</button>
   <button mat-raised-button [disabled]="disabled" color="primary" (click)="deleteSelectedShape()">Clear Selection</button>
