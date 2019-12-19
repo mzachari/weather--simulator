@@ -233,5 +233,13 @@ export class AppComponent implements OnInit {
   }
   simulateDrought() {
 
+    const simulatedRegion =  this.farmCoords.map(point => {
+      return [
+        point.lat,
+        point.lng
+      ];
+    });
+    this.socket.emit('drought', simulatedRegion, 'drought', 0);
+
   }
 }
