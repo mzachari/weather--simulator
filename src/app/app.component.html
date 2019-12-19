@@ -1,6 +1,7 @@
+<div *ngIf = "farmsListLoaded">
 <h1>Weather Simulator</h1>
 <div>
-  Precipitation: <mat-slider [disabled]="disabled" thumbLabel  min="0" max="100" step="1" value="25"></mat-slider>
+  Precipitation: <mat-slider [disabled]="disabled" thumbLabel  min="0" max="100" step="1" [value]="precipitationVal"></mat-slider>
   <button mat-raised-button [disabled]="disabled" color="primary" (click)="simulatePrecipitation()">Simulate</button>
   <button mat-raised-button [disabled]="disabled" color="primary" (click)="simulateDrought()">Simulate Drought</button>
   <button mat-raised-button [disabled]="disabled" color="primary" (click)="deleteSelectedShape()">Clear Selection</button>
@@ -10,7 +11,8 @@
     [longitude]="lng"
     (mapReady)="onMapReady($event)"
   >
-  <agm-marker *ngFor="let farm of farmLocations" [latitude]="farm[0].lat()" [longitude] = "farm[0].lng()"></agm-marker>
+  <agm-marker *ngFor="let farm of farmLocations" [latitude]="farm[0]?.lat()" [longitude] = "farm[0]?.lng()"></agm-marker>
   <agm-polygon *ngFor="let farm of farmLocations" [strokeColor]="'#083478'" [strokeWeight]="4" [paths] = "farm"></agm-polygon>
   </agm-map>
+</div>
 </div>
